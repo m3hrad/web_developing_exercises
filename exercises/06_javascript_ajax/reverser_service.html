@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<script>
+function myFunction() {
+  function reverse(s){
+      return s.split("").reverse().join("");
+  }
+  var form = document.getElementById("reverser");
+  var clear = document.getElementById("clearInput");
+    form.onsubmit = function () {
+      myMessage = document.getElementById("toBeReversed").value;
+      msg = {};
+	    msg.payload = reverse(myMessage); // (1) #toBeReversed contained 'Hello' and user submitted #reverser
+      parent.postMessage(msg, "*");
+      return false;
+    };
+    clear.onclick = function () {
+      msg = {};
+      msg.payload = 'INPUT CLEARED' // (2) User clicked #clearInput
+      parent.postMessage(msg, "*");
+      return false;
+    };
+}
+</script>
+</head>
+<body onload="myFunction()">
+
+<form name="form" id="reverser">
+  <input id="toBeReversed" type="text" name="msg" value="Your message"/>
+  <input type="submit" id="submitReverser"/>
+</form>
+<button id="clearInput" >Clear Input</button>
+
+</body>
+</html>

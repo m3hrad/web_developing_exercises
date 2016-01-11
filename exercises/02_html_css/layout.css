@@ -1,0 +1,22 @@
+#header{
+  width:100%;
+}
+#navigation{
+   list-style-type: none;
+}
+#navigation li{
+   display: inline-block;;
+}
+#aside {
+  float:right;
+  width: 20%;
+}
+#content{
+  width:75%;
+  float: left;
+}
+#footer{
+  clear:both;
+  width: 100%;
+  margin: auto auto;
+}
